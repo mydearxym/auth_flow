@@ -1,6 +1,6 @@
 {
-  "name": "coderplanets_web",
-  "version": "0.4.0-canary.0",
+  "name": "auth_flow",
+  "version": "0.0.1",
   "license": "Apache License 2.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev run-p server lint:watch",
@@ -12,12 +12,8 @@
     "build:with18n": "npm run i18n && next build",
     "build.prod": "cross-env GOAL=production next build",
     "build.dev": "cross-env GOAL=dev next build",
-    "launch": "cross-env GOAL=production next start -p ${SERVE_PORT}",
-    "launch.dev": "cross-env NODE_ENV=dev SERVE_PORT=${SERVE_PORT} node server",
-    "launch.prod": "cross-env NODE_ENV=production SERVE_PORT=${SERVE_PORT} node server",
     "dist": "npm run i18n && next build && next export -o \"build\"",
-    "i18n": "shjs ./utils/scripts/create_default_lang.js && shjs ./utils/scripts/cp_locales.js",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "clean": "shjs ./utils/scripts/clean.js",
     "gen": "plop --plopfile ./utils/scripts/generators/index.js",
     "analyze": "cross-env ANALYZE=1 next build",
