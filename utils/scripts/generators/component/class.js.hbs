@@ -1,0 +1,49 @@
+/*
+ *
+ * {{ properCase name }}
+ *
+*/
+
+import  React from 'react'
+import PropTypes from 'prop-types'
+
+{{#if wantStyle}}
+import { Wrapper } from './styles'
+{{/if}}
+{{#if wantMessages}}
+import { FormattedMessage } from 'react-intl'
+import messages from './messages'
+{{/if}}
+
+import { makeDebugger } from 'utils'
+
+/* eslint-disable-next-line */
+const debug = makeDebugger('c:{{ properCase name }}:index')
+
+
+class {{ properCase name }} extends React.PureComponent {
+  constructor(props) {
+    super(props)
+  }
+
+  // componentWillUnmount() {}
+
+  render() {
+    return (
+      <div>
+        {{ properCase name }} component
+        {{#if wantMessages}}
+          <FormattedMessage {...messages.header} />
+        {{/if}}
+      </div>
+    )
+  }
+}
+
+{{ properCase name }}.propTypes = {
+  // https://www.npmjs.com/package/prop-types
+}
+
+{{ properCase name }}.defaultProps = {}
+
+export default {{ properCase name }}

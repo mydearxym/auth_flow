@@ -1,0 +1,46 @@
+/*
+*
+* {{ properCase name }}
+*
+*/
+
+import React from 'react'
+import { inject, observer } from 'mobx-react'
+{{#if wantMessages}}
+  import { FormattedMessage } from 'react-intl'
+  import messages from './messages'
+{{/if}}
+
+// import { } from './styles'
+
+import { makeDebugger, storePlug } from 'utils'
+
+import * as logic from './logic'
+/* eslint-disable-next-line */
+const debug = makeDebugger('C:{{ properCase name }}')
+
+
+class {{ properCase name }}Container extends React.Component {
+  componentDidMount() {
+    const {{preCurly ""}} {{ camelCase name}} {{afterCurly ""}} = this.props
+    logic.init({{ camelCase name }})
+  }
+
+  componentWillUnmount() {
+    logic.uninit()
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>{{ properCase name }} container!</h2>
+        <div>impress me!</div>
+        {{#if wantMessages}}
+        <FormattedMessage {...messages.header} />
+        {{/if}}
+      </div>
+    )
+  }
+}
+
+export default inject(storePlug('{{ camelCase name }}'))(observer({{ properCase name }}Container))

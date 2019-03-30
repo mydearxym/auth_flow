@@ -1,0 +1,67 @@
+{
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "transform-inline-environment-variables",
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "react-intl",
+      {
+        "messagesDir": "lang/.messages/"
+      }
+    ],
+    [
+      "import",
+      {
+        "libraryName": "antd"
+      }
+    ],
+    "ramda",
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "containers":"./containers",
+        "components":"./components",
+        "config":"./config",
+        "stores":"./stores",
+        "schemas":"./containers/schemas",
+        "utils":"./utils",
+        "Img": "./components/Img",
+        "SvgIcons": "./components/SvgIcons"
+      }
+    }]
+  ],
+  "presets": [
+    ["next/babel", {
+      "preset-env": {
+        "targets": {
+          "ie": "11"
+        }
+      }
+    }]
+  ],
+  "env": {
+     "development": {
+       "plugins": ["inline-dotenv"]
+    },
+    "local": {},
+    "production": {
+      "presets": [["next/babel", {
+      "preset-env": {
+        "targets": {
+          "ie": "11"
+        }
+      }
+    }]]
+    },
+    "test": {
+      "plugins": ["inline-dotenv"]
+    }
+  }
+}
