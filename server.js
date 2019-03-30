@@ -10,10 +10,7 @@ const uuidv4 = require('uuid/v4')
 const LRUCache = require('lru-cache')
 const helmet = require('helmet')
 const mobxReact = require('mobx-react')
-const R = require('ramda')
-
-// inspect graphql model
-const { express: voyagerMiddleware } = require('graphql-voyager/middleware')
+/* const R = require('ramda') */
 
 const app = next({ dev, quiet: false })
 const handle = app.getRequestHandler()
@@ -43,10 +40,6 @@ app.prepare().then(() => {
   server.use(reDirectToNakedUrl)
   server.use(express.static('static'))
   server.use(helmet())
-  server.use(
-    '/model-graphs',
-    voyagerMiddleware({ endpointUrl: 'https://api.coderplanets.com/graphiql' })
-  )
 
   server.get('/_next/:page?', (req, res) => handle(req, res))
 
@@ -60,50 +53,6 @@ app.prepare().then(() => {
   server.get('/sentry/', (req, res) =>
     renderAndCache(req, res, '/sentry', req.query)
   )
-
-  // app.render(req, res, '/user', req.query)
-  server.get('/user/:userId', (req, res) =>
-    renderAndCache(req, res, '/user', req.query)
-  )
-
-  server.get('/:community/post/:id', (req, res) =>
-    renderAndCache(req, res, '/post', req.query)
-  )
-
-  server.get('/:community/job/:id', (req, res) =>
-    renderAndCache(req, res, '/job', req.query)
-  )
-
-  server.get('/:community/video/:id', (req, res) =>
-    renderAndCache(req, res, '/video', req.query)
-  )
-
-  server.get('/:community/repo/:id', (req, res) =>
-    renderAndCache(req, res, '/repo', req.query)
-  )
-
-  server.get('/communities', (req, res) => res.redirect('/communities/pl'))
-
-  server.get('/communities/:category', (req, res) =>
-    renderAndCache(req, res, '/communities', req.query)
-  )
-
-  server.get('/:community/', (req, res) =>
-    res.redirect(`/${req.params.community}/posts`)
-  )
-
-  server.get('/:community/:thread', (req, res) => {
-    if (
-      R.has('preview', req.query) &&
-      R.has('id', req.query) &&
-      R.has('community', req.query)
-    ) {
-      const { community, preview, id } = req.query
-      return res.redirect(`/${community}/${preview}/${id}`)
-    }
-
-    return renderAndCache(req, res, '/community', req.query)
-  })
 
   server.get('*', (req, res) => handle(req, res))
 

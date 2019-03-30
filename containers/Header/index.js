@@ -7,11 +7,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 import keydown from 'react-keydown'
-import { Affix } from 'antd'
 
 import { makeDebugger, storePlug } from 'utils'
-import Header from './Header'
-import { AffixHeader, RawHeader } from './styles'
 
 import * as logic from './logic'
 
@@ -37,43 +34,11 @@ class HeaderContainer extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   render() {
-    const { header } = this.props
-    const {
-      fixed,
-      curRoute,
-      leftOffset,
-      accountInfo,
-      isLogin,
-      activeInfo,
-      curCommunity,
-    } = header
+    // const { header } = this.props
 
     return (
       <React.Fragment>
-        <AffixHeader fixed={fixed}>
-          <Affix>
-            <Header
-              fixed={fixed}
-              curRoute={curRoute}
-              leftOffset={leftOffset}
-              accountInfo={accountInfo}
-              isLogin={isLogin}
-              activeInfo={activeInfo}
-              curCommunity={curCommunity}
-            />
-          </Affix>
-        </AffixHeader>
-        <RawHeader fixed={fixed}>
-          <Header
-            fixed={fixed}
-            curRoute={curRoute}
-            leftOffset={leftOffset}
-            accountInfo={accountInfo}
-            isLogin={isLogin}
-            activeInfo={activeInfo}
-            curCommunity={curCommunity}
-          />
-        </RawHeader>
+        <h3>this is Header</h3>
       </React.Fragment>
     )
   }

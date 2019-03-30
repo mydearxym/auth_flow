@@ -4,16 +4,13 @@ import R from 'ramda'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
-import Sidebar from 'containers/Sidebar'
 import Preview from 'containers/Preview'
-import Doraemon from 'containers/Doraemon'
 import Route from 'containers/Route'
 import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import Banner from 'containers/Banner'
 import Content from 'containers/Content'
 import Footer from 'containers/Footer'
-import ErrorBox from 'containers/ErrorBox'
 
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
@@ -74,10 +71,7 @@ export default class PageCommunity extends React.Component {
               <React.Fragment>
                 <Route />
                 <MultiLanguage>
-                  {!hideSidebar && <Sidebar />}
                   <Preview />
-                  <Doraemon />
-                  <ErrorBox />
                   <BodyLayout noSidebar={hideSidebar}>
                     <Header />
                     <Banner />
