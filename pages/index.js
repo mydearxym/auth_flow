@@ -2,13 +2,16 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
-import MultiLanguage from 'containers/MultiLanguage'
+// import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
 // import Route from 'containers/Route'
-import BodyLayout from 'containers/BodyLayout'
-import Header from 'containers/Header'
-import Banner from 'containers/Banner'
-import Content from 'containers/Content'
+import AuthLayout from 'components/AuthLayout'
+import AuthBanner from 'components/AuthBanner'
+
+import LoginForm from 'containers/LoginForm'
+// import Header from 'containers/Header'
+// import Banner from 'containers/Banner'
+// import Content from 'containers/Content'
 import Footer from 'containers/Footer'
 
 import GAWraper from 'components/GAWraper'
@@ -63,15 +66,12 @@ export default class PageCommunity extends React.Component {
               />
             ) : (
               <React.Fragment>
-                <MultiLanguage>
-                  <Preview />
-                  <BodyLayout>
-                    <Header />
-                    <Banner />
-                    <Content />
-                    <Footer />
-                  </BodyLayout>
-                </MultiLanguage>
+                <Preview />
+                <AuthLayout>
+                  <AuthBanner />
+                  <LoginForm />
+                  <Footer />
+                </AuthLayout>
               </React.Fragment>
             )}
           </ThemeWrapper>

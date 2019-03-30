@@ -19,21 +19,10 @@ import {
 import {
   // domain
   RouteStore,
-  AccountStore,
-  BodylayoutStore,
-  HeaderStore,
-  ContentStore,
-  ViewingStore,
   ThemeStore,
   ThemeDefaults,
-
-  // banners
-  BannerStore,
-  // content
-  // footer
+  LoginFormStore,
   FooterStore,
-
-  // toolbox
   PreviewStore,
 } from '../index'
 
@@ -43,9 +32,7 @@ const debug = makeDebugger('S:rootStore')
 const rootStore = t
   .model({
     // domain stores
-    account: t.optional(AccountStore, {}),
     route: t.optional(RouteStore, {}),
-    viewing: t.optional(ViewingStore, {}),
     theme: t.optional(ThemeStore, ThemeDefaults),
     appLocale: t.optional(t.enumeration('locale', ['zh', 'en']), 'zh'),
     appLangs: t.map(t.frozen),
@@ -54,17 +41,8 @@ const rootStore = t
     // toolbox
     preview: t.optional(PreviewStore, { visible: false }),
     // toolbox end
-
-    // layouts > xxx > papers
-    // layouts
-    bodylayout: t.optional(BodylayoutStore, {}),
-    header: t.optional(HeaderStore, {}),
-    content: t.optional(ContentStore, {}),
-    // layouts end
-
     // banners
-    banner: t.optional(BannerStore, {}),
-
+    loginFormStore: t.optional(LoginFormStore, {}),
     // content
 
     // content end

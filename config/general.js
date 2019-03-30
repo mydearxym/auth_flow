@@ -2,7 +2,7 @@
    general behavior of the site
  */
 
-export const DEFAULT_THEME = 'cyan'
+export const DEFAULT_THEME = 'github'
 export const SENIOR_AMOUNT_THRESHOLD = 51.2
 export const SPONSOR_AMOUNT_THRESHOLD = 5999
 

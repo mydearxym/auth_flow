@@ -94,15 +94,6 @@ export {
 } from './mobx_helper'
 
 export {
-  ssrPagedSchema,
-  ssrPagedFilter,
-  ssrContentsThread,
-  addTopicIfNeed,
-  validCommunityFilters,
-  parseTheme,
-} from './ssr_helper'
-
-export {
   pageGoTop,
   scrollIntoEle,
   holdPage,

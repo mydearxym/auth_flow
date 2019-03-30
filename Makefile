@@ -20,7 +20,7 @@ dep:
 
 # shortcut for launch.local
 dev:
-	npm run local
+	npm run dev
 
 build:
 	npm build
