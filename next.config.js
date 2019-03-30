@@ -13,6 +13,7 @@ const Dotenv = require('dotenv-webpack')
 const { ANALYZE } = process.env
 
 module.exports = nextSourceMaps({
+  target: 'serverless',
   webpack: (config, { isServer, buildId }) => {
     config.plugins = config.plugins || []
 
