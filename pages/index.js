@@ -1,11 +1,10 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import R from 'ramda'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
 import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
-import Route from 'containers/Route'
+// import Route from 'containers/Route'
 import BodyLayout from 'containers/BodyLayout'
 import Header from 'containers/Header'
 import Banner from 'containers/Banner'
@@ -17,7 +16,7 @@ import ErrorPage from 'components/ErrorPage'
 import initRootStore from 'stores/init'
 // import { GAWraper, ErrorPage } from 'components'
 
-import { makeDebugger, getMainPath, ROUTE } from 'utils'
+import { makeDebugger } from 'utils'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')
@@ -32,16 +31,11 @@ global.Intl = require('intl')
    currently it's just the community page with no data fetch, works fine though
  */
 export default class PageCommunity extends React.Component {
-  static async getInitialProps(props) {
-    const mainPath = getMainPath(props)
-    const subPath = getMainPath(props)
-    const hideSidebar =
-      R.contains(mainPath, [ROUTE.USER]) ||
-      R.contains(subPath, [ROUTE.POST, ROUTE.REPO, ROUTE.VIDEO, ROUTE.JOB])
+  static async getInitialProps() {
+    // const mainPath = getMainPath(props)
+    // const subPath = getMainPath(props)
 
-    return {
-      hideSidebar,
-    }
+    return {}
   }
 
   constructor(props) {
@@ -55,7 +49,7 @@ export default class PageCommunity extends React.Component {
   }
 
   render() {
-    const { statusCode, target, hideSidebar } = this.props
+    const { statusCode, target } = this.props
 
     return (
       <Provider store={this.store}>
@@ -69,10 +63,9 @@ export default class PageCommunity extends React.Component {
               />
             ) : (
               <React.Fragment>
-                <Route />
                 <MultiLanguage>
                   <Preview />
-                  <BodyLayout noSidebar={hideSidebar}>
+                  <BodyLayout>
                     <Header />
                     <Banner />
                     <Content />

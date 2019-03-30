@@ -13,12 +13,6 @@ export default class MyDocument extends Document {
   }
 
   render() {
-    /*
-       const sheet = new ServerStyleSheet()
-       const main = sheet.collectStyles(<Main />)
-       const styleTags = sheet.getStyleElement()
-     */
-
     return (
       <html>
         <Head>
@@ -30,11 +24,6 @@ export default class MyDocument extends Document {
           />
 
           <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" />
-          {/* load g2 from CDN, it's too big for dynamic import, and i am poor ..' */}
-          <script
-            async
-            src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"
-          />
           <link
             href="https://cdn.staticfile.org/antd/3.8.4/antd.css"
             rel="stylesheet"
@@ -77,12 +66,6 @@ export default class MyDocument extends Document {
         <link
           href="https://cdn.staticfile.org/izitoast/1.4.0/css/iziToast.css"
           rel="stylesheet"
-        />
-        {/* the ali-oss-sdk es6 import support sucks */}
-        {/* import from cdn is fine, it's not my money anyway */}
-        <script
-          async
-          src="https://gosspublic.alicdn.com/aliyun-oss-sdk-5.2.0.min.js"
         />
         <noscript>You need to enable JavaScript to run this app.</noscript>
       </html>

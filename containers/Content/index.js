@@ -24,13 +24,13 @@ class ContentContainer extends React.Component {
   }
 
   render() {
-    const { content } = this.props
-    const { curRoute } = content
+    // const { content } = this.props
+    // const { curRoute } = content
 
     //    debug('curRoute: ', curRoute)
     return (
       <Wrapper>
-        <h3>{curRoute}</h3>
+        <h3>content</h3>
       </Wrapper>
     )
   }
