@@ -9,7 +9,7 @@ import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug } from 'utils'
 
-import { Wrapper } from './styles'
+import { Wrapper, FormWrapper } from './styles'
 
 import * as logic from './logic'
 /* eslint-disable-next-line */
@@ -28,8 +28,10 @@ class LoginFormContainer extends React.Component {
   render() {
     return (
       <Wrapper>
-        <h2>LoginForm container!</h2>
-        <div>impress me!</div>
+        <FormWrapper>
+          <h2>LoginForm container!</h2>
+          <div>impress me!</div>
+        </FormWrapper>
       </Wrapper>
     )
   }
