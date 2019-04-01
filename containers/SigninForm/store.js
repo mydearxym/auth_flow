@@ -1,5 +1,5 @@
 /*
-* LoginForm store
+* SigninForm store
 *
 */
 
@@ -8,18 +8,16 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from 'utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:LoginForm')
+const debug = makeDebugger('S:SigninForm')
 
-const LoginForm = t
-  .model('LoginForm', {
-    // 登陆密码
+const SigninForm = t
+  .model('SigninForm', {
     password: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
-
     get formData() {
       const { password } = self
 
@@ -35,4 +33,4 @@ const LoginForm = t
     },
   }))
 
-export default LoginForm
+export default SigninForm

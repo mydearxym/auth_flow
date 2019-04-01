@@ -21,7 +21,7 @@ import {
   RouteStore,
   ThemeStore,
   ThemeDefaults,
-  LoginFormStore,
+  SigninFormStore,
   SignupFormStore,
   PhoneNumInputStore,
   FooterStore,
@@ -43,13 +43,9 @@ const rootStore = t
     // toolbox
     preview: t.optional(PreviewStore, { visible: false }),
     // toolbox end
-    // banners
-    loginForm: t.optional(LoginFormStore, {}),
+    signinForm: t.optional(SigninFormStore, {}),
     signupForm: t.optional(SignupFormStore, {}),
-    // content
     phoneNumInput: t.optional(PhoneNumInputStore, {}),
-
-    // content end
 
     // footer
     footer: t.optional(FooterStore, {}),

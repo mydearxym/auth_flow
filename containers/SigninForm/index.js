@@ -1,6 +1,6 @@
 /*
  *
- * LoginForm
+ * SigninForm
  *
  */
 
@@ -10,6 +10,8 @@ import Link from 'next/link'
 
 import { makeDebugger, storePlug } from 'utils'
 
+import Forms from './Forms'
+
 import {
   Wrapper,
   FormWrapper,
@@ -18,17 +20,15 @@ import {
   RegisterButton,
 } from './styles'
 
-import Forms from './Forms'
-
 import { init, uninit, loginConfirm } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:LoginForm')
+const debug = makeDebugger('C:SigninForm')
 
-class LoginFormContainer extends React.Component {
+class SigninFormContainer extends React.Component {
   componentDidMount() {
-    const { loginForm } = this.props
-    init(loginForm)
+    const { signinForm } = this.props
+    init(signinForm)
   }
 
   componentWillUnmount() {
@@ -36,8 +36,8 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    const { loginForm } = this.props
-    const { formData } = loginForm
+    const { signinForm } = this.props
+    const { formData } = signinForm
 
     return (
       <Wrapper>
@@ -58,4 +58,4 @@ class LoginFormContainer extends React.Component {
   }
 }
 
-export default inject(storePlug('loginForm'))(observer(LoginFormContainer))
+export default inject(storePlug('signinForm'))(observer(SigninFormContainer))
