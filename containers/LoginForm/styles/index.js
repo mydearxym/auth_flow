@@ -30,3 +30,12 @@ export const Divider = styled.div`
 export const LoginButton = styled(Button)`
   width: 80%;
 `
+
+export const RegisterButton = styled.div`
+  margin-top: 5px;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+`

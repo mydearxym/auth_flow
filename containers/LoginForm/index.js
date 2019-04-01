@@ -9,7 +9,13 @@ import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug } from 'utils'
 
-import { Wrapper, FormWrapper, Divider, LoginButton } from './styles'
+import {
+  Wrapper,
+  FormWrapper,
+  Divider,
+  LoginButton,
+  RegisterButton,
+} from './styles'
 
 import Forms from './Forms'
 
@@ -43,6 +49,7 @@ class LoginFormContainer extends React.Component {
             登陆
           </LoginButton>
         </FormWrapper>
+        <RegisterButton>注册平台账号</RegisterButton>
       </Wrapper>
     )
   }

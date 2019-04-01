@@ -2,22 +2,16 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
-// import MultiLanguage from 'containers/MultiLanguage'
 import Preview from 'containers/Preview'
-// import Route from 'containers/Route'
 import AuthLayout from 'components/AuthLayout'
 import AuthBanner from 'components/AuthBanner'
 
-import LoginForm from 'containers/LoginForm'
-// import Header from 'containers/Header'
-// import Banner from 'containers/Banner'
-// import Content from 'containers/Content'
+// import LoginForm from 'containers/LoginForm'
 import Footer from 'containers/Footer'
 
 import GAWraper from 'components/GAWraper'
 import ErrorPage from 'components/ErrorPage'
 import initRootStore from 'stores/init'
-// import { GAWraper, ErrorPage } from 'components'
 
 import { makeDebugger } from 'utils'
 
@@ -27,13 +21,8 @@ const debug = makeDebugger('page:community')
 // try to fix safari bug
 // see https://github.com/yahoo/react-intl/issues/422
 global.Intl = require('intl')
-/*
-   NOTE: in dev mode, this index page is always be required, even the server
-   is not routing to this page, it's very confused, help needed
 
-   currently it's just the community page with no data fetch, works fine though
- */
-export default class SignIn extends React.Component {
+export default class SignUp extends React.Component {
   static async getInitialProps() {
     // const mainPath = getMainPath(props)
     // const subPath = getMainPath(props)
@@ -69,7 +58,7 @@ export default class SignIn extends React.Component {
                 <Preview />
                 <AuthLayout>
                   <AuthBanner />
-                  <LoginForm />
+                  <h3>sign up</h3>
                   <Footer />
                 </AuthLayout>
               </React.Fragment>
