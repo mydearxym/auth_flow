@@ -6,7 +6,7 @@ import Preview from 'containers/Preview'
 import AuthLayout from 'components/AuthLayout'
 import AuthBanner from 'components/AuthBanner'
 
-// import LoginForm from 'containers/LoginForm'
+import SignupForm from 'containers/SignupForm'
 import Footer from 'containers/Footer'
 
 import GAWraper from 'components/GAWraper'
@@ -58,7 +58,7 @@ export default class SignUp extends React.Component {
                 <Preview />
                 <AuthLayout>
                   <AuthBanner />
-                  <h3>sign up</h3>
+                  <SignupForm />
                   <Footer />
                 </AuthLayout>
               </React.Fragment>

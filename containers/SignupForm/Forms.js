@@ -1,17 +1,14 @@
 import React from 'react'
 
-// import { ICON_CMD } from '../../config'
 import FormItem from 'components/FormItem'
-import VerificationCodeInput from './VerificationCodeInput'
-
 import { Wrapper, Divider, FormTitle, Label, LabelHint } from './styles/forms'
 
 import { inputOnChange } from './logic'
 
-const Forms = ({ data: { accountName, password } }) => (
+const Forms = ({ data: { accountName, passport } }) => (
   <Wrapper>
     <FormTitle>
-      <Label>手机号</Label>
+      <Label>用户名或邮箱地址注册</Label>
       <LabelHint>--</LabelHint>
     </FormTitle>
     <FormItem
@@ -20,20 +17,17 @@ const Forms = ({ data: { accountName, password } }) => (
       onChange={inputOnChange.bind(this, 'accountName')}
       bottom="0"
     />
-    <Divider />
 
-    <VerificationCodeInput />
     <Divider />
-
     <FormTitle>
       <Label>密码</Label>
-      <LabelHint>忘记密码?</LabelHint>
+      <LabelHint>--</LabelHint>
     </FormTitle>
     <FormItem
       size="default"
       contentType="password"
-      value={password}
-      onChange={inputOnChange.bind(this, 'password')}
+      value={passport}
+      onChange={inputOnChange.bind(this, 'passport')}
       bottom="0"
     />
   </Wrapper>

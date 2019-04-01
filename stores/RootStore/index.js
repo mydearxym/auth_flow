@@ -22,6 +22,7 @@ import {
   ThemeStore,
   ThemeDefaults,
   LoginFormStore,
+  SignupFormStore,
   FooterStore,
   PreviewStore,
 } from '../index'
@@ -43,6 +44,7 @@ const rootStore = t
     // toolbox end
     // banners
     loginForm: t.optional(LoginFormStore, {}),
+    signupForm: t.optional(SignupFormStore, {}),
     // content
 
     // content end

@@ -1,5 +1,5 @@
 /*
-* LoginForm store
+* SignupForm store
 *
 */
 
@@ -8,25 +8,20 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from 'utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:LoginForm')
+const debug = makeDebugger('S:SignupForm')
 
-const LoginForm = t
-  .model('LoginForm', {
-    // username or email
-    accountName: t.optional(t.string, ''),
-    password: t.optional(t.string, ''),
-    // phone number's verification code
-    verifyCode: t.optional(t.string, ''),
-  })
+const SignupForm = t
+  .model('SignupForm', {})
   .views(self => ({
     get root() {
       return getParent(self)
     },
 
     get formData() {
-      const { accountName, password } = self
+      // const { accountName, passport } = self
 
-      return { accountName, password }
+      // return { accountName, passport }
+      return {}
     },
   }))
   .actions(self => ({
@@ -38,4 +33,4 @@ const LoginForm = t
     },
   }))
 
-export default LoginForm
+export default SignupForm

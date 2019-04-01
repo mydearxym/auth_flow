@@ -1,6 +1,6 @@
 /*
  *
- * LoginForm
+ * SignupForm
  *
  */
 
@@ -20,15 +20,15 @@ import {
 
 import Forms from './Forms'
 
-import { init, uninit, loginConfirm } from './logic'
+import { init, uninit, signupConfirm } from './logic'
 
 /* eslint-disable-next-line */
-const debug = makeDebugger('C:LoginForm')
+const debug = makeDebugger('C:SignupForm')
 
-class LoginFormContainer extends React.Component {
+class SignupFormContainer extends React.Component {
   componentDidMount() {
-    const { loginForm } = this.props
-    init(loginForm)
+    const { signupForm } = this.props
+    init(signupForm)
   }
 
   componentWillUnmount() {
@@ -36,26 +36,26 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    const { loginForm } = this.props
-    const { formData } = loginForm
+    const { signupForm } = this.props
+    const { formData } = signupForm
 
     return (
       <Wrapper>
         <FormWrapper>
-          <h2>登陆交易平台</h2>
+          <h2>注册交易平台</h2>
           <div>让买电像买菜一样简单</div>
           <Divider />
           <Forms data={formData} />
-          <LoginButton type="primary" onClick={loginConfirm}>
-            登陆
+          <LoginButton type="primary" onClick={signupConfirm}>
+            注册
           </LoginButton>
         </FormWrapper>
         <RegisterButton>
-          <Link href="/sign_up">注册平台账号</Link>
+          <Link href="/">登陆已有账号</Link>
         </RegisterButton>
       </Wrapper>
     )
   }
 }
 
-export default inject(storePlug('loginForm'))(observer(LoginFormContainer))
+export default inject(storePlug('signupForm'))(observer(SignupFormContainer))
