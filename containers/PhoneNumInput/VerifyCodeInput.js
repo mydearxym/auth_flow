@@ -2,21 +2,20 @@ import React from 'react'
 
 import FormItem from 'components/FormItem'
 
-import { Wrapper, ConfirmBtn } from './styles/verification_code_input'
-
+import { Wrapper, ConfirmBtn } from './styles/verify_code_input'
 import { inputOnChange } from './logic'
 
-const VerificationCodeInput = ({ verifyCode }) => (
+const VerifyCodeInput = ({ code }) => (
   <Wrapper>
     <FormItem
       size="default"
       placeholder="验证码"
-      value={verifyCode}
-      onChange={inputOnChange.bind(this, 'verifyCode')}
+      value={code}
+      onChange={inputOnChange.bind(this, 'code')}
       bottom="0"
     />
     <ConfirmBtn>发送验证码</ConfirmBtn>
   </Wrapper>
 )
 
-export default VerificationCodeInput
+export default VerifyCodeInput

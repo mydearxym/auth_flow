@@ -1,5 +1,5 @@
 /*
-* LoginForm store
+* PhoneNumInput store
 *
 */
 
@@ -8,22 +8,21 @@ import { types as t, getParent } from 'mobx-state-tree'
 
 import { markStates, makeDebugger } from 'utils'
 /* eslint-disable-next-line */
-const debug = makeDebugger('S:LoginForm')
+const debug = makeDebugger('S:PhoneNumInput')
 
-const LoginForm = t
-  .model('LoginForm', {
-    // 登陆密码
-    password: t.optional(t.string, ''),
+const PhoneNumInput = t
+  .model('PhoneNumInput', {
+    phone: t.optional(t.string, ''),
+    code: t.optional(t.string, ''),
   })
   .views(self => ({
     get root() {
       return getParent(self)
     },
-
     get formData() {
-      const { password } = self
+      const { phone, code } = self
 
-      return { password }
+      return { phone, code }
     },
   }))
   .actions(self => ({
@@ -35,4 +34,4 @@ const LoginForm = t
     },
   }))
 
-export default LoginForm
+export default PhoneNumInput

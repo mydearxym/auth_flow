@@ -10,5 +10,7 @@ export { default as PreviewStore } from 'containers/Preview/store'
 export { default as LoginFormStore } from 'containers/LoginForm/store'
 export { default as SignupFormStore } from 'containers/SignupForm/store'
 
+export { default as PhoneNumInputStore } from 'containers/PhoneNumInput/store'
+
 // footer
 export { default as FooterStore } from 'containers/Footer/store'

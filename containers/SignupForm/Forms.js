@@ -1,23 +1,14 @@
 import React from 'react'
 
 import FormItem from 'components/FormItem'
+import PhoneNumInput from 'containers/PhoneNumInput'
 import { Wrapper, Divider, FormTitle, Label, LabelHint } from './styles/forms'
 
 import { inputOnChange } from './logic'
 
-const Forms = ({ data: { accountName, passport } }) => (
+const Forms = ({ data: { passport } }) => (
   <Wrapper>
-    <FormTitle>
-      <Label>用户名或邮箱地址注册</Label>
-      <LabelHint>--</LabelHint>
-    </FormTitle>
-    <FormItem
-      size="default"
-      value={accountName}
-      onChange={inputOnChange.bind(this, 'accountName')}
-      bottom="0"
-    />
-
+    <PhoneNumInput />
     <Divider />
     <FormTitle>
       <Label>密码</Label>

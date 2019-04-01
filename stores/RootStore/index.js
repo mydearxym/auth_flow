@@ -23,6 +23,7 @@ import {
   ThemeDefaults,
   LoginFormStore,
   SignupFormStore,
+  PhoneNumInputStore,
   FooterStore,
   PreviewStore,
 } from '../index'
@@ -46,6 +47,7 @@ const rootStore = t
     loginForm: t.optional(LoginFormStore, {}),
     signupForm: t.optional(SignupFormStore, {}),
     // content
+    phoneNumInput: t.optional(PhoneNumInputStore, {}),
 
     // content end
 

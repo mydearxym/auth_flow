@@ -2,29 +2,16 @@ import React from 'react'
 
 // import { ICON_CMD } from '../../config'
 import FormItem from 'components/FormItem'
-import VerificationCodeInput from './VerificationCodeInput'
+import PhoneNumInput from 'containers/PhoneNumInput'
 
 import { Wrapper, Divider, FormTitle, Label, LabelHint } from './styles/forms'
 
 import { inputOnChange } from './logic'
 
-const Forms = ({ data: { accountName, password } }) => (
+const Forms = ({ data: { password } }) => (
   <Wrapper>
-    <FormTitle>
-      <Label>手机号</Label>
-      <LabelHint>--</LabelHint>
-    </FormTitle>
-    <FormItem
-      size="default"
-      value={accountName}
-      onChange={inputOnChange.bind(this, 'accountName')}
-      bottom="0"
-    />
+    <PhoneNumInput />
     <Divider />
-
-    <VerificationCodeInput />
-    <Divider />
-
     <FormTitle>
       <Label>密码</Label>
       <LabelHint>忘记密码?</LabelHint>
