@@ -2901,7 +2901,7 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
-cypress@^3.0.2:
+cypress@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/cypress/-/cypress-3.2.0.tgz#c2d5befd5077dab6fb52ad70721e0868ac057001"
   dependencies:

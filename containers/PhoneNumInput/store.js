@@ -39,6 +39,9 @@ const PhoneNumInput = t
     updateEditing(sobj) {
       return self.markState({ ...sobj })
     },
+    toastError(options) {
+      self.root.toast('error', R.merge({ position: 'topCenter' }, options))
+    },
     validator(type) {
       const validPhone = R.compose(
         R.equals(11),

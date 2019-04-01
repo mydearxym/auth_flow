@@ -23,10 +23,13 @@ const debug = makeDebugger('L:PhoneNumInput')
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
-export async function queryVerrifyCode() {
+export const queryVerrifyCode = () => {
   // const { phone, code } = store
-  // debug('queryVerrifyCode phone: ', phone)
-  // debug('queryVerrifyCode code: ', code)
+  if (!store.validator('phone')) {
+    return store.toastError({ title: '发送失败', msg: '请填写手机号码' })
+  }
+  /* debug('queryVerrifyCode phone: ', phone) */
+  /* debug('queryVerrifyCode code: ', code) */
   debug('do loop')
   startCounterLoop()
 }
@@ -40,8 +43,7 @@ export async function phoneOnBlur() {
   }
 
   const res = await getPhoneInfo(phone)
-  console.log('phoneOnBlur: ', res.carrier)
-
+  debug('phoneOnBlur: ', res.carrier)
   store.markState({ phoneCarrier: res.carrier })
 }
 
