@@ -42,10 +42,11 @@ class PhoneNumInputContainer extends React.Component {
     return (
       <Wrapper>
         <FormTitle>
-          <Label>手机号码</Label>
+          <Label>手机号码.</Label>
           {!R.isEmpty(phoneCarrier) && <LabelHint>{phoneCarrier}</LabelHint>}
         </FormTitle>
         <FormItem
+          dataCy="phone-num-input"
           size="default"
           value={phone}
           onChange={inputOnChange.bind(this, 'phone')}
