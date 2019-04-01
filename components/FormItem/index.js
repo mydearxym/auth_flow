@@ -25,6 +25,7 @@ const debug = makeDebugger('c:FormItem:index')
 
 const FormContent = ({
   type,
+  contentType,
   value,
   onChange,
   error,
@@ -56,6 +57,7 @@ const FormContent = ({
       return (
         <FormInput>
           <Inputer
+            type={contentType}
             size={size}
             error={String(error)}
             value={value}
@@ -71,6 +73,7 @@ const FormContent = ({
 
 const FormItem = ({
   type,
+  contentType,
   label,
   raw,
   ratKey,
@@ -90,6 +93,7 @@ const FormItem = ({
 
     <FormContent
       type={type}
+      contentType={contentType}
       value={value}
       error={hasValue(raw) && raw === ratKey}
       size={size}
@@ -110,6 +114,7 @@ FormItem.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   type: PropTypes.oneOf(['input', 'textarea', 'node']),
+  contentType: PropTypes.oneOf(['text', 'password']),
   node: PropTypes.node,
   att: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(['small', 'default', 'large']),
@@ -125,6 +130,7 @@ FormItem.defaultProps = {
   size: 'default',
   placeholder: '',
   type: 'input',
+  contentType: 'text',
   node: <div />,
   att: '',
   onChange: debug,

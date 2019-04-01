@@ -1,7 +1,15 @@
 import styled from 'styled-components'
 
+import { cs } from 'utils'
+
 export const Wrapper = styled.div`
-  display: flex;
+  ${cs.flex('align-center')};
+  margin-bottom: 15px;
 `
 
-export const Holder = 1
+export const Item = styled.div`
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+`

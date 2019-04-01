@@ -7,16 +7,19 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 
+import { ICON_BASE } from 'config'
 import { makeDebugger } from 'utils'
 
-import { Wrapper } from './styles'
+import { Wrapper, CompanyLogo } from './styles'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('c:AuthBanner:index')
 
-const AuthBanner = () => {
-  return <Wrapper>AuthBanner component</Wrapper>
-}
+const AuthBanner = () => (
+  <Wrapper>
+    <CompanyLogo src={`${ICON_BASE}/wanyi.png`} />
+  </Wrapper>
+)
 
 AuthBanner.propTypes = {}
 

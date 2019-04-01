@@ -42,7 +42,7 @@ const rootStore = t
     preview: t.optional(PreviewStore, { visible: false }),
     // toolbox end
     // banners
-    loginFormStore: t.optional(LoginFormStore, {}),
+    loginForm: t.optional(LoginFormStore, {}),
     // content
 
     // content end

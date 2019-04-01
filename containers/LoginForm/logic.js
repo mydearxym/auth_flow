@@ -1,6 +1,13 @@
 // import R from 'ramda'
 
-import { makeDebugger, $solver, asyncErr, ERR, errRescue } from 'utils'
+import {
+  makeDebugger,
+  $solver,
+  asyncErr,
+  ERR,
+  errRescue,
+  updateEditing,
+} from 'utils'
 
 import SR71 from 'utils/async/sr71'
 // import S from './schema'
@@ -12,7 +19,14 @@ let store = null
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:LoginForm')
 
-export const someMethod = () => {}
+export const inputOnChange = (part, e) => updateEditing(store, part, e)
+
+export const loginConfirm = () => {
+  const { accountName, passport } = store
+
+  debug('loginConfirm accountName: ', accountName)
+  debug('loginConfirm passport: ', passport)
+}
 
 // const const cancleLoading = () => {}
 

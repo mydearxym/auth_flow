@@ -8,6 +8,8 @@ import React from 'react'
 import { inject, observer } from 'mobx-react'
 
 import { makeDebugger, storePlug } from 'utils'
+import DotDivider from 'components/DotDivider'
+import { Wrapper, Item } from './styles'
 
 import { init } from './logic'
 
@@ -24,9 +26,13 @@ class FooterContainer extends React.Component {
     // const { footer } = this.props
 
     return (
-      <React.Fragment>
-        <h3>Footer</h3>
-      </React.Fragment>
+      <Wrapper>
+        <Item>关于我们</Item>
+        <DotDivider />
+        <Item>权利与隐私</Item>
+        <DotDivider />
+        <Item>联系我们</Item>
+      </Wrapper>
     )
   }
 }
