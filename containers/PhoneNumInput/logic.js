@@ -10,6 +10,8 @@ import {
 } from 'utils'
 
 import SR71 from 'utils/async/sr71'
+
+import { getPhoneInfo } from './service'
 // import S from './schema'
 
 const sr71$ = new SR71()
@@ -21,7 +23,50 @@ const debug = makeDebugger('L:PhoneNumInput')
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
-// const const cancleLoading = () => {}
+export async function queryVerrifyCode() {
+  // const { phone, code } = store
+  // debug('queryVerrifyCode phone: ', phone)
+  // debug('queryVerrifyCode code: ', code)
+  debug('do loop')
+  startCounterLoop()
+}
+
+export async function phoneOnBlur() {
+  const { phone } = store
+
+  if (!store.validator('phone')) {
+    store.markState({ phoneCarrier: '' })
+    return false
+  }
+
+  const res = await getPhoneInfo(phone)
+  console.log('phoneOnBlur: ', res.carrier)
+
+  store.markState({ phoneCarrier: res.carrier })
+}
+
+// 开始倒计时
+const startCounterLoop = () => {
+  const { counterTimer } = store
+  if (counterTimer) clearInterval(counterTimer)
+
+  const timer = setInterval(() => {
+    const { counter } = store
+    if (counter <= 1) return stopCounterLoop()
+
+    store.markState({ counter: store.counter - 1 })
+  }, 1000)
+
+  store.markState({ queryBtnDisable: true, counterTimer: timer })
+}
+
+// 结束倒计时
+const stopCounterLoop = () => {
+  const { counterTimer } = store
+  if (counterTimer) clearInterval(counterTimer)
+
+  store.markState({ queryBtnDisable: false, counter: 60 })
+}
 
 // ###############################
 // Data & Error handlers

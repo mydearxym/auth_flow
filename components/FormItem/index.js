@@ -28,6 +28,7 @@ const FormContent = ({
   contentType,
   value,
   onChange,
+  onBlur,
   error,
   size,
   placeholder,
@@ -62,6 +63,7 @@ const FormContent = ({
             error={String(error)}
             value={value}
             onChange={onChange}
+            onBlur={onBlur}
             placeholder={placeholder}
             disabled={disabled}
           />
@@ -79,6 +81,7 @@ const FormItem = ({
   ratKey,
   value,
   onChange,
+  onBlur,
   size,
   placeholder,
   node,
@@ -98,6 +101,7 @@ const FormItem = ({
       error={hasValue(raw) && raw === ratKey}
       size={size}
       onChange={onChange}
+      onBlur={onBlur}
       placeholder={placeholder}
       node={node}
       att={att}
@@ -112,6 +116,7 @@ FormItem.propTypes = {
   raw: PropTypes.string,
   ratKey: PropTypes.string,
   placeholder: PropTypes.string,
+  onBlur: PropTypes.func,
   onChange: PropTypes.func,
   type: PropTypes.oneOf(['input', 'textarea', 'node']),
   contentType: PropTypes.oneOf(['text', 'password']),
@@ -133,6 +138,7 @@ FormItem.defaultProps = {
   contentType: 'text',
   node: <div />,
   att: '',
+  onBlur: debug,
   onChange: debug,
   bottom: '25px',
   disabled: false,
