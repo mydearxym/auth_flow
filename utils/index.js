@@ -57,8 +57,6 @@ export {
 } from './validator'
 
 export {
-  makeGQClient,
-  makeGithubExplore,
   asyncErr,
   asyncRes,
   later,
@@ -66,8 +64,7 @@ export {
   atomizeValues,
 } from './graphql_helper'
 
-export { default as githubApi } from './github_api'
-
+// should use 3rd-part tools
 export {
   getMainPath,
   getSubPath,

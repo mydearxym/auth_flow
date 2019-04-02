@@ -22,6 +22,9 @@ dep:
 dev:
 	npm run dev
 
+mock:
+	npm run mock
+
 build:
 	npm build
 
@@ -31,9 +34,9 @@ build.dev:
 build.prod:
 	npm run build.prod
 
-mock:
+mock.server:
 	find ./ -name ".DS_Store" -delete
-	npm run mock
+	npm run mock:server
 
 launch.help:
 	$(call launch.help)

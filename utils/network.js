@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-fetch'
 import fetchJsonp from 'fetch-jsonp'
 
-const endpoint = 'http://localhost:3001'
+import { REST_ENDPOINT } from 'config'
 
 const post = (path, params) => {
-  return fetch(`${endpoint}${path}`, {
+  return fetch(`${REST_ENDPOINT}${path}`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -19,7 +19,7 @@ const post = (path, params) => {
 }
 
 const get = path => {
-  return fetch(`${endpoint}${path}`).then(r => r.json())
+  return fetch(`${REST_ENDPOINT}${path}`).then(r => r.json())
 }
 
 const get3rd = url => fetchJsonp(`${url}`).then(r => r.json())

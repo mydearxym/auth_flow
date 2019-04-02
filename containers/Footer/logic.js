@@ -1,18 +1,8 @@
 // import R from 'ramda'
 
-import {
-  makeDebugger,
-  $solver,
-  dispatchEvent,
-  EVENT,
-  PAYMENT_USAGE,
-} from 'utils'
-import SR71 from 'utils/async/sr71'
+import { makeDebugger, dispatchEvent, EVENT, PAYMENT_USAGE } from 'utils'
 
 // import S from './schema'
-
-const sr71$ = new SR71()
-let sub$ = null
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('L:Footer2')
@@ -36,15 +26,9 @@ export const queryDoraemon = data =>
   dispatchEvent(EVENT.QUERY_DORAMON, { data })
 
 // ###############################
-// Data & Error handlers
+// init & uninit handlers
 // ###############################
-
-const DataSolver = []
-const ErrSolver = []
 
 export const init = _store => {
   store = _store
-
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }

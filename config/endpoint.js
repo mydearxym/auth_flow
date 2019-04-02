@@ -9,18 +9,18 @@ const getGraphQLEndpoint = () => {
       return 'https://api.coderplanets.com/graphiql'
 
     case 'dev':
-      return 'https://devapi.coderplanets.com/graphiql'
+      return `http://localhost:${MOCK_SERVER_PORT}`
+    // return 'https://devapi.coderplanets.com/graphiql'
 
     case 'mock':
       return `http://localhost:${MOCK_SERVER_PORT}`
 
     default:
       return 'https://api.coderplanets.com/graphiql'
-    /* return 'http://localhost:4001/graphiql' */
   }
 }
 
-export const GRAPHQL_ENDPOINT = getGraphQLEndpoint()
+export const REST_ENDPOINT = getGraphQLEndpoint()
 
 export const SITE_URL = 'https://coderplanets.com'
 export const GITHUB_WEB_ADDR =
