@@ -7,13 +7,15 @@ const { dbHandler, rewriterHandler } = require('./handler')
 
 const H = require('./actions')
 
-// TODO: move port to config dir
+// const mockPort = config.MOCK_SERVER_PORT // 3001
+
+// TODO: commonjs can't require from es6 code
 const mockPort = 3001
+const delaySec = 1.5
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
-
-// res.jsonp(req.query)
+server.use('*', (req, res, next) => setTimeout(next, delaySec * 1000))
 
 /* eslint-disable */
 server.get('/echo', (req, res) => res.json(require('./data/user/login.json')))

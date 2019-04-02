@@ -1,6 +1,8 @@
 /* config for different envs */
 import { ICON_CMD } from './assets'
 
+export const MOCK_SERVER_PORT = 3001
+
 const getGraphQLEndpoint = () => {
   switch (process.env.GOAL) {
     case 'production':
@@ -8,6 +10,9 @@ const getGraphQLEndpoint = () => {
 
     case 'dev':
       return 'https://devapi.coderplanets.com/graphiql'
+
+    case 'mock':
+      return `http://localhost:${MOCK_SERVER_PORT}`
 
     default:
       return 'https://api.coderplanets.com/graphiql'
