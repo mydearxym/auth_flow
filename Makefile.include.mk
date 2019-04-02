@@ -1,6 +1,6 @@
 OS := ${shell uname}
 
-.PHONY: test deploy
+.PHONY: test deploy mock
 
 BELONG = "coderplanets"
 REPO = "coderplanets_web"

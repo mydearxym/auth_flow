@@ -5,6 +5,8 @@ const middlewares = jsonServer.defaults()
 // const config = require('../config')
 const { dbHandler, rewriterHandler } = require('./handler')
 
+const H = require('./actions')
+
 // TODO: move port to config dir
 const mockPort = 3001
 
@@ -15,6 +17,7 @@ server.use(middlewares)
 
 /* eslint-disable */
 server.get('/echo', (req, res) => res.json(require('./data/user/login.json')))
+server.get('/addPerson', (req, res) => H.employee.addPerson(req, res))
 /* eslint-enable */
 
 // To handle POST, PUT and PATCH you need to use a body-parser

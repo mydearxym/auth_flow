@@ -22,6 +22,7 @@
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
+    "mock": "node mock/server",
     "mock:watch": "json-server --port 3001 --watch ./mock/db.json",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },

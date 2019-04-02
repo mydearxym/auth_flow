@@ -31,6 +31,10 @@ build.dev:
 build.prod:
 	npm run build.prod
 
+mock:
+	find ./ -name ".DS_Store" -delete
+	npm run mock
+
 launch.help:
 	$(call launch.help)
 	@echo "\n"
@@ -43,8 +47,6 @@ launch.dev:
 	npm run launch.dev
 launch.prod:
 	npm run launch.prod
-launch.mock:
-	npm run mock:watch
 
 gen.help:
 	$(call gen.help)
