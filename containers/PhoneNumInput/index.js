@@ -46,7 +46,7 @@ class PhoneNumInputContainer extends React.Component {
           {!R.isEmpty(phoneCarrier) && <LabelHint>{phoneCarrier}</LabelHint>}
         </FormTitle>
         <FormItem
-          dataCy="phone-num-input"
+          testid="phone-num-input"
           size="default"
           value={phone}
           onChange={inputOnChange.bind(this, 'phone')}

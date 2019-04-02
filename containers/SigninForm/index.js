@@ -20,7 +20,7 @@ import {
   RegisterButton,
 } from './styles'
 
-import { init, uninit, loginConfirm } from './logic'
+import { init, uninit, signinConfirm } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:SigninForm')
@@ -46,7 +46,11 @@ class SigninFormContainer extends React.Component {
           <div>让买电像买菜一样简单</div>
           <Divider />
           <Forms data={formData} />
-          <LoginButton type="primary" onClick={loginConfirm}>
+          <LoginButton
+            type="primary"
+            onClick={signinConfirm}
+            testid="signin-confirm-btn"
+          >
             登陆
           </LoginButton>
         </FormWrapper>

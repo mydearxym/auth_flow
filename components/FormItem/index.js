@@ -35,7 +35,7 @@ const FormContent = ({
   node,
   att,
   disabled,
-  dataCy,
+  testid,
 }) => {
   switch (type) {
     case 'node':
@@ -51,7 +51,7 @@ const FormContent = ({
             autosize={{ minRows: 3, maxRows: 6 }}
             onChange={onChange}
             disabled={disabled}
-            data-cy={dataCy}
+            data-testid={testid}
           />
         </FormInput>
       )
@@ -60,7 +60,7 @@ const FormContent = ({
       return (
         <FormInput>
           <Inputer
-            data-cy={dataCy}
+            data-testid={testid}
             type={contentType}
             size={size}
             error={String(error)}
@@ -91,7 +91,7 @@ const FormItem = ({
   att,
   bottom,
   disabled,
-  dataCy,
+  testid,
 }) => (
   <FormItemWrapper className="normal-form" bottom={bottom}>
     <Maybe test={!R.isEmpty(label)}>
@@ -110,7 +110,7 @@ const FormItem = ({
       node={node}
       att={att}
       disabled={disabled}
-      dataCy={dataCy}
+      testid={testid}
     />
   </FormItemWrapper>
 )
@@ -130,7 +130,7 @@ FormItem.propTypes = {
   size: PropTypes.oneOf(['small', 'default', 'large']),
   bottom: PropTypes.string,
   disabled: PropTypes.bool,
-  dataCy: PropTypes.string,
+  testid: PropTypes.string,
 }
 
 FormItem.defaultProps = {
@@ -148,7 +148,7 @@ FormItem.defaultProps = {
   onChange: debug,
   bottom: '25px',
   disabled: false,
-  dataCy: 'form-input',
+  testid: 'form-input',
 }
 
 export default FormItem

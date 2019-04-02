@@ -27,7 +27,9 @@ export const Divider = styled.div`
   margin-bottom: 20px;
 `
 
-export const LoginButton = styled(Button)`
+export const LoginButton = styled(Button).attrs(props => ({
+  'data-testid': props.testid || 'signin_btn',
+}))`
   width: 80%;
 `
 

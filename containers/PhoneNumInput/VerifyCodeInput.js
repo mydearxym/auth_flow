@@ -8,7 +8,7 @@ import { inputOnChange, queryVerrifyCode } from './logic'
 const VerifyCodeInput = ({ code, counter, disable }) => (
   <Wrapper>
     <FormItem
-      dataCy="verify-code-input"
+      testid="verify-code-input"
       size="default"
       placeholder="验证码"
       value={code}

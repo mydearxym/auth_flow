@@ -21,11 +21,11 @@ const debug = makeDebugger('L:LoginForm')
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
-export const loginConfirm = () => {
+export const signinConfirm = () => {
   const { accountName, passport } = store
 
-  debug('loginConfirm accountName: ', accountName)
-  debug('loginConfirm passport: ', passport)
+  debug('signinConfirm accountName: ', accountName)
+  debug('signinConfirm passport: ', passport)
 }
 
 // const const cancleLoading = () => {}
