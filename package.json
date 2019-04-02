@@ -22,7 +22,7 @@
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
-    "mock": "node mock/server",
+    "mock": "nodemon mock/server --watch ./mock",
     "mock:watch": "json-server --port 3001 --watch ./mock/db.json",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
@@ -124,6 +124,7 @@
     "husky": "^1.3.1",
     "jest": "23.4.2",
     "json-server": "^0.14.2",
+    "nodemon": "^1.18.10",
     "npm-run-all": "^4.1.1",
     "plop": "2.2.0",
     "prettier": "1.14.0",
