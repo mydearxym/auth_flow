@@ -1,19 +1,9 @@
 // import R from 'ramda'
 
-import {
-  makeDebugger,
-  $solver,
-  asyncErr,
-  ERR,
-  errRescue,
-  updateEditing,
-} from 'utils'
+import { makeDebugger, updateEditing } from 'utils'
 
-import SR71 from 'utils/async/sr71'
-// import S from './schema'
+import { signIn } from './service'
 
-const sr71$ = new SR71()
-let sub$ = null
 let store = null
 
 /* eslint-disable-next-line */
@@ -21,55 +11,23 @@ const debug = makeDebugger('L:LoginForm')
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
-export const signinConfirm = () => {
-  const { accountName, passport } = store
+export async function signinConfirm() {
+  const { formData, isValidPhone } = store
 
-  debug('signinConfirm accountName: ', accountName)
-  debug('signinConfirm passport: ', passport)
+  debug('signinConfirm isValidPhone: ', isValidPhone)
+  debug('signinConfirm formData: ', formData)
+
+  const res = await signIn(formData)
+
+  console.log('signIn res: ', res)
 }
 
-// const const cancleLoading = () => {}
-
 // ###############################
-// Data & Error handlers
+// init & uninit
 // ###############################
-
-const DataSolver = []
-const ErrSolver = [
-  {
-    match: asyncErr(ERR.GRAPHQL),
-    action: () => {
-      // cancleLoading()
-    },
-  },
-  {
-    match: asyncErr(ERR.TIMEOUT),
-    action: ({ details }) => {
-      // cancleLoading()
-      errRescue({ type: ERR.TIMEOUT, details, path: 'LoginForm' })
-    },
-  },
-  {
-    match: asyncErr(ERR.NETWORK),
-    action: () => {
-      // cancleLoading()
-      errRescue({ type: ERR.NETWORK, path: 'LoginForm' })
-    },
-  },
-]
 
 export const init = _store => {
   store = _store
-
-  debug(store)
-  if (sub$) return false
-  sub$ = sr71$.data().subscribe($solver(DataSolver, ErrSolver))
 }
 
-export const uninit = () => {
-  if (!sub$) return false
-  debug('===== do uninit')
-  sr71$.stop()
-  sub$.unsubscribe()
-  sub$ = null
-}
+export const uninit = () => {}

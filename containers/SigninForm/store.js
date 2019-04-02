@@ -18,10 +18,15 @@ const SigninForm = t
     get root() {
       return getParent(self)
     },
+    get isValidPhone() {
+      const { isValidPhone } = self.root.phoneNumInput
+      return isValidPhone
+    },
     get formData() {
       const { password } = self
+      const { phone } = self.root.phoneNumInput
 
-      return { password }
+      return { password, phone }
     },
   }))
   .actions(self => ({

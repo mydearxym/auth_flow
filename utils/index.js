@@ -1,6 +1,8 @@
 /*
  * utils functiosn
  */
+export { default as network } from './network'
+
 export {
   EVENT,
   ERR,

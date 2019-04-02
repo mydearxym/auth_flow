@@ -101,6 +101,7 @@
     "babel-plugin-react-intl": "2.4.0",
     "babel-plugin-styled-components": "1.9.3",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "body-parser": "^1.18.3",
     "commitizen": "3.0.7",
     "coveralls": "3.0.3",
     "cross-env": "^5.0.5",
