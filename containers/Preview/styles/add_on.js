@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import Img from 'components/Img'
-import { theme, TYPE, animate, cs } from 'utils'
+import { theme, animate, cs } from 'utils'
 // import { theme } from 'utils'
 
 export const Wrapper = styled.div`
@@ -18,12 +18,7 @@ export const CloseTab = styled.div`
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
-  display: ${({ type }) =>
-    type === TYPE.PREVIEW_ACCOUNT_VIEW ||
-    type === TYPE.PREVIEW_USER_VIEW ||
-    type === TYPE.PREVIEW_ACCOUNT_EDIT
-      ? 'none'
-      : 'block'};
+  display: block;
 
   &:hover:after {
     animation: ${animate.rotate360CloseRule};

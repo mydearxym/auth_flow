@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { Button } from 'antd'
-// import Img from 'components/Img'
+import Img from 'components/Img'
 import { cs } from 'utils'
 
 export const Wrapper = styled.div`
@@ -27,7 +27,7 @@ export const Divider = styled.div`
   margin-bottom: 20px;
 `
 
-export const LoginButton = styled(Button).attrs(props => ({
+export const SigninButton = styled(Button).attrs(props => ({
   'data-testid': props.testid || 'signin_btn',
 }))`
   width: 80%;
@@ -40,4 +40,10 @@ export const RegisterButton = styled.div`
     cursor: pointer;
     font-weight: bold;
   }
+`
+
+export const SuccessIcon = styled(Img)`
+  width: 50px;
+  height: 50px;
+  display: block;
 `

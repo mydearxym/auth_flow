@@ -3,7 +3,7 @@ import React from 'react'
 import FormItem from 'components/FormItem'
 
 import { Wrapper, ConfirmBtn } from './styles/verify_code_input'
-import { inputOnChange, queryVerrifyCode } from './logic'
+import { queryVerrifyCode, codeOnChange } from './logic'
 
 const VerifyCodeInput = ({ code, counter, disable }) => (
   <Wrapper>
@@ -12,9 +12,8 @@ const VerifyCodeInput = ({ code, counter, disable }) => (
       size="default"
       placeholder="验证码"
       value={code}
-      onChange={inputOnChange.bind(this, 'code')}
+      onChange={codeOnChange}
       bottom="0"
-      disabled={disable}
     />
     {disable ? (
       <ConfirmBtn disabled={disable}>

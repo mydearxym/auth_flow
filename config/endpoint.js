@@ -4,6 +4,7 @@ import { ICON_CMD } from './assets'
 export const MOCK_SERVER_PORT = 3001
 
 const getGraphQLEndpoint = () => {
+  // console.log('getGraphQLEndpoint GOAL: ', process.env.GOAL)
   switch (process.env.GOAL) {
     case 'production':
       return 'https://api.coderplanets.com/graphiql'

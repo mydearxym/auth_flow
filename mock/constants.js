@@ -1,0 +1,7 @@
+module.exports = {
+  SUCCESS_CODE: 1001,
+  ERR_CODE: 1002,
+
+  BAD_PHONE_CODE: '9527',
+  BAD_SIGN_PASSWORD: '654321',
+}

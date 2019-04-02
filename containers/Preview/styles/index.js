@@ -1,26 +1,8 @@
 import styled from 'styled-components'
 
-import R from 'ramda'
-import { theme, TYPE, animate, cs } from 'utils'
+// import R from 'ramda'
+import { theme, animate, cs } from 'utils'
 
-const WIDE_CASE = [
-  // post
-  TYPE.PREVIEW_POST_VIEW,
-  TYPE.PREVIEW_POST_CREATE,
-  TYPE.PREVIEW_POST_EDIT,
-  // job
-  TYPE.PREVIEW_JOB_VIEW,
-  TYPE.PREVIEW_JOB_CREATE,
-  TYPE.PREVIEW_JOB_EDIT,
-  // repo
-  TYPE.PREVIEW_REPO_VIEW,
-  TYPE.PREVIEW_REPO_CREATE,
-  // video
-  TYPE.PREVIEW_VIDEO_VIEW,
-  // mails
-  TYPE.PREVIEW_MAILS_VIEW,
-]
-const WIDE_WIDTH = '70%'
 const NARROW_WIDTH = '40%'
 
 function doTransform(visible) {
@@ -48,8 +30,7 @@ export const PreviewWrapper = styled.div`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: 0px;
   height: 100%;
-  width: ${({ type }) =>
-    R.contains(type, WIDE_CASE) ? WIDE_WIDTH : NARROW_WIDTH};
+  width: ${NARROW_WIDTH};
   max-width: 1000px;
   right: 0;
   position: fixed;
@@ -91,12 +72,7 @@ export const Closer = styled.div`
   height: ${closeWith};
   perspective: ${closeWith};
   cursor: pointer;
-  display: ${({ type }) =>
-    type === TYPE.PREVIEW_ACCOUNT_VIEW ||
-    type === TYPE.PREVIEW_USER_VIEW ||
-    type === TYPE.PREVIEW_ACCOUNT_EDIT
-      ? 'none'
-      : 'block'};
+  display: block;
 
   &:hover:after {
     animation: ${animate.rotate360CloseRule};

@@ -11,12 +11,13 @@ import Link from 'next/link'
 import { makeDebugger, storePlug } from 'utils'
 
 import Forms from './Forms'
+import SuccessPrompt from './SuccessPrompt'
 
 import {
   Wrapper,
   FormWrapper,
   Divider,
-  LoginButton,
+  SigninButton,
   RegisterButton,
 } from './styles'
 
@@ -45,15 +46,17 @@ class SigninFormContainer extends React.Component {
           <h2>登陆交易平台</h2>
           <div>让买电像买菜一样简单</div>
           <Divider />
+          <SuccessPrompt />
           <Forms data={formData} />
-          <LoginButton
+          <SigninButton
             type="primary"
             onClick={signinConfirm}
             testid="signin-confirm-btn"
           >
             登陆
-          </LoginButton>
+          </SigninButton>
         </FormWrapper>
+
         <RegisterButton>
           <Link href="/sign_up">注册平台账号</Link>
         </RegisterButton>

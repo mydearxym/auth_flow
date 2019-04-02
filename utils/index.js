@@ -3,22 +3,7 @@
  */
 export { default as network } from './network'
 
-export {
-  EVENT,
-  ERR,
-  TYPE,
-  THREAD,
-  COMMUNITY_SPEC_THREADS,
-  TOPIC,
-  USER_THREAD,
-  ACTION,
-  FILTER,
-  ROUTE,
-  C11N,
-  NON_FILL_COMMUNITY,
-  PAYMENT_USAGE,
-  PAYMENT_METHOD,
-} from './constants'
+export { EVENT, ERR, ROUTE, NET } from './constants'
 
 export { makeDebugger } from './debug'
 

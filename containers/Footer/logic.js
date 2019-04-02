@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, dispatchEvent, EVENT, PAYMENT_USAGE } from 'utils'
+import { makeDebugger, dispatchEvent, EVENT } from 'utils'
 
 // import S from './schema'
 
@@ -17,9 +17,8 @@ export const toggleBusBanner = () =>
   store.markState({ showBusBanner: !store.showBusBanner })
 
 export const onLogin = () => store.authWarning({ hideToast: true })
-export const onPay = num => {
+export const onPay = () => {
   if (!store.isLogin) return store.authWarning()
-  store.cashierHelper({ paymentUsage: PAYMENT_USAGE.DONATE, amount: num })
 }
 
 export const queryDoraemon = data =>

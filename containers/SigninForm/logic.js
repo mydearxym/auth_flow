@@ -1,6 +1,6 @@
 // import R from 'ramda'
 
-import { makeDebugger, updateEditing } from 'utils'
+import { makeDebugger, updateEditing, NET } from 'utils'
 
 import { signIn } from './service'
 
@@ -13,13 +13,19 @@ export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
 export async function signinConfirm() {
   const { formData, isValidPhone } = store
-
-  debug('signinConfirm isValidPhone: ', isValidPhone)
-  debug('signinConfirm formData: ', formData)
+  if (!isValidPhone) {
+    return store.toastError({ title: '登陆失败', msg: '请填写正确的手机号码' })
+  }
+  if (!store.validator('password')) {
+    return store.toastError({ title: '登陆失败', msg: '请正确填写密码' })
+  }
 
   const res = await signIn(formData)
 
-  console.log('signIn res: ', res)
+  if (res.code === NET.ERR_CODE) {
+    return console.log('signIn res fuck: ', res)
+  }
+  return console.log('signIn res ok: ', res)
 }
 
 // ###############################

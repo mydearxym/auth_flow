@@ -27,6 +27,9 @@ server.use('*', (req, res, next) => setTimeout(next, delaySec * 1000))
 /* eslint-disable */
 server.get('/echo', (req, res) => res.json(require('./data/user/login.json')))
 server.post('/signin', (req, res) => H.account.signin(req, res))
+server.get('/verifyPhoneCode', (req, res) =>
+  H.account.verifyPhoneCode(req, res)
+)
 /* eslint-enable */
 
 // 获取db数据

@@ -49,12 +49,25 @@ const PhoneNumInput = t
         R.trim
       )
 
-      if (type === 'phone') {
-        const { phone } = self
-        if (validPhone(phone)) return true
+      switch (type) {
+        // 'phone'
+        default: {
+          const { phone } = self
+          if (validPhone(phone)) return true
 
-        return false
+          return false
+        }
       }
+    },
+    reset() {
+      self.markState({
+        phone: '',
+        code: '',
+        isValidPhone: false,
+        queryBtnDisable: false,
+        counter: 60,
+        phoneCarrier: '',
+      })
     },
     markState(sobj) {
       markStates(sobj, self)
