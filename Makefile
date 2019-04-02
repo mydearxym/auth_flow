@@ -43,6 +43,8 @@ launch.dev:
 	npm run launch.dev
 launch.prod:
 	npm run launch.prod
+launch.mock:
+	npm run mock:watch
 
 gen.help:
 	$(call gen.help)

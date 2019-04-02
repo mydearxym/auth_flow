@@ -1,0 +1,30 @@
+{
+  "issues": [
+    {
+      "id": 1,
+      "text": "something is not right"
+    },
+    {
+      "id": 2,
+      "text": "crash on login"
+    }
+  ],
+  "hello": {
+    "code": 1001,
+    "message": "操作成功",
+    "data": [
+      {
+        "id": 1
+      }
+    ]
+  },
+  "customer": {
+    "code": 1001,
+    "message": "操作成功",
+    "data": [
+      {
+        "id": 1
+      }
+    ]
+  }
+}
