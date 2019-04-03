@@ -80,6 +80,21 @@ make gen
 
 ![image](https://user-images.githubusercontent.com/6184465/55447324-dc20db00-55f5-11e9-96a5-d9e604ee4e94.png)
 
+按照配置约定会生成如下样板代码
+
+```bash
+containers/Hello/
+├── index.js
+├── logic.js
+├── service.js
+├── store.js
+├── styles
+│   └── index.js
+└── tests
+    ├── index.test.js
+    └── store.test.js
+```
+
 ## mock 层
 
 ```bash
