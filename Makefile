@@ -15,8 +15,8 @@ help:
 init:
 	npm install
 
-dep:
-	npm install # for commitizen
+install:
+	yarn install
 
 # shortcut for launch.local
 dev:
