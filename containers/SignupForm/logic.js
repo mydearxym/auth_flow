@@ -1,8 +1,8 @@
 // import R from 'ramda'
 
-import { makeDebugger, updateEditing } from 'utils'
+import { makeDebugger, updateEditing, NET } from 'utils'
 
-// import S from './schema'
+import S from './service'
 
 let store = null
 
@@ -11,11 +11,15 @@ const debug = makeDebugger('L:SignupForm')
 
 export const inputOnChange = (part, e) => updateEditing(store, part, e)
 
-export const signupConfirm = () => {
-  const { accountName, passport } = store
+export async function signupConfirm() {
+  if (!store.validator('password')) return false
+  const { formData } = store
 
-  debug('signupConfirm accountName: ', accountName)
-  debug('signupConfirm passport: ', passport)
+  const res = await S.signUp(formData)
+  if (res.code === NET.ERR_CODE) {
+    return store.toastError({ title: '注册失败', msg: res.message })
+  }
+  return store.markState({ curView: 'SIGNUP_SUCCESS' })
 }
 
 // const const cancleLoading = () => {}
@@ -28,4 +32,6 @@ export const init = _store => {
   store = _store
 }
 
-export const uninit = () => {}
+export const uninit = () => {
+  store.markState({ curView: 'SIGNUP', password: '' })
+}

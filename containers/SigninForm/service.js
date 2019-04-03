@@ -1,9 +1,14 @@
 import { network } from 'utils'
 
-export async function signIn(params) {
+async function signIn(params) {
   return network.post('/signin', params)
 }
 
-export async function verifyPhoneCode(params) {
-  return network.post('/signin', params)
+async function resetPassword(params) {
+  return network.post('/resetPassword', params)
+}
+
+export default {
+  signIn,
+  resetPassword,
 }

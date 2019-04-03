@@ -27,7 +27,7 @@ export const Divider = styled.div`
   margin-bottom: 20px;
 `
 
-export const LoginButton = styled(Button)`
+export const SignupButton = styled(Button)`
   width: 80%;
 `
 

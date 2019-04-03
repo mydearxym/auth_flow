@@ -8,7 +8,7 @@ import { queryVerrifyCode, codeOnChange } from './logic'
 const VerifyCodeInput = ({ code, counter, disable }) => (
   <Wrapper>
     <FormItem
-      testid="verify-code-input"
+      testid="phone-code-input"
       size="default"
       placeholder="验证码"
       value={code}
@@ -16,13 +16,15 @@ const VerifyCodeInput = ({ code, counter, disable }) => (
       bottom="0"
     />
     {disable ? (
-      <ConfirmBtn disabled={disable}>
+      <ConfirmBtn disabled={disable} testid="phone-code-resend-btn">
         重新发送(
         {counter}
         s)
       </ConfirmBtn>
     ) : (
-      <ConfirmBtn onClick={queryVerrifyCode}>发送验证码</ConfirmBtn>
+      <ConfirmBtn onClick={queryVerrifyCode} testid="phone-code-btn">
+        发送验证码
+      </ConfirmBtn>
     )}
   </Wrapper>
 )

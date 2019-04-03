@@ -43,7 +43,9 @@ class PhoneNumInputContainer extends React.Component {
       <Wrapper>
         <FormTitle>
           <Label>手机号码.</Label>
-          {!R.isEmpty(phoneCarrier) && <LabelHint>{phoneCarrier}</LabelHint>}
+          {!R.isEmpty(phoneCarrier) && (
+            <LabelHint testid="phone-carrier-text">{phoneCarrier}</LabelHint>
+          )}
         </FormTitle>
         <FormItem
           testid="phone-num-input"

@@ -16,7 +16,9 @@ export const FormTitle = styled.div`
   font-size: 0.8rem;
 `
 export const Label = styled.div``
-export const LabelHint = styled.div`
+export const LabelHint = styled.div.attrs(props => ({
+  'data-testid': props.testid || 'label-hint',
+}))`
   opacity: 0.6;
   &:hover {
     opacity: 1;

@@ -6,7 +6,7 @@ import { Wrapper, Divider, FormTitle, Label, LabelHint } from './styles/forms'
 
 import { inputOnChange } from './logic'
 
-const Forms = ({ data: { passport } }) => (
+const Forms = ({ data: { password } }) => (
   <Wrapper>
     <PhoneNumInput />
     <Divider />
@@ -17,8 +17,8 @@ const Forms = ({ data: { passport } }) => (
     <FormItem
       size="default"
       contentType="password"
-      value={passport}
-      onChange={inputOnChange.bind(this, 'passport')}
+      value={password}
+      onChange={inputOnChange.bind(this, 'password')}
       bottom="0"
     />
   </Wrapper>

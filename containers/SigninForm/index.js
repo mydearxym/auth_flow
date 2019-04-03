@@ -10,18 +10,12 @@ import Link from 'next/link'
 
 import { makeDebugger, storePlug } from 'utils'
 
+import PromptSign from 'components/PromptSign'
 import Forms from './Forms'
-import SuccessPrompt from './SuccessPrompt'
+import ConfirmButton from './ConfirmButton'
 
-import {
-  Wrapper,
-  FormWrapper,
-  Divider,
-  SigninButton,
-  RegisterButton,
-} from './styles'
-
-import { init, uninit, signinConfirm } from './logic'
+import { Wrapper, FormWrapper, Divider, RegisterButton } from './styles'
+import { init, uninit } from './logic'
 
 /* eslint-disable-next-line */
 const debug = makeDebugger('C:SigninForm')
@@ -38,7 +32,7 @@ class SigninFormContainer extends React.Component {
 
   render() {
     const { signinForm } = this.props
-    const { formData } = signinForm
+    const { formData, curView } = signinForm
 
     return (
       <Wrapper>
@@ -46,20 +40,23 @@ class SigninFormContainer extends React.Component {
           <h2>登陆交易平台</h2>
           <div>让买电像买菜一样简单</div>
           <Divider />
-          <SuccessPrompt />
-          <Forms data={formData} />
-          <SigninButton
-            type="primary"
-            onClick={signinConfirm}
-            testid="signin-confirm-btn"
-          >
-            登陆
-          </SigninButton>
+          {curView === 'SIGNIN_SUCCESS' ? (
+            <PromptSign
+              desc="登陆成功，即将跳转"
+              testid="signin-success-prompt"
+            />
+          ) : (
+            <Forms data={formData} curView={curView} />
+          )}
+
+          <ConfirmButton curView={curView} />
         </FormWrapper>
 
-        <RegisterButton>
-          <Link href="/sign_up">注册平台账号</Link>
-        </RegisterButton>
+        {curView === 'SIGNIN' && (
+          <RegisterButton>
+            <Link href="/sign_up">注册平台账号</Link>
+          </RegisterButton>
+        )}
       </Wrapper>
     )
   }

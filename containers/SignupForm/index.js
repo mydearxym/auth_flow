@@ -10,11 +10,13 @@ import Link from 'next/link'
 
 import { makeDebugger, storePlug } from 'utils'
 
+import PromptSign from 'components/PromptSign'
+
 import {
   Wrapper,
   FormWrapper,
   Divider,
-  LoginButton,
+  SignupButton,
   RegisterButton,
 } from './styles'
 
@@ -37,7 +39,7 @@ class SignupFormContainer extends React.Component {
 
   render() {
     const { signupForm } = this.props
-    const { formData } = signupForm
+    const { formData, curView } = signupForm
 
     return (
       <Wrapper>
@@ -45,10 +47,16 @@ class SignupFormContainer extends React.Component {
           <h2>注册交易平台</h2>
           <div>让买电像买菜一样简单</div>
           <Divider />
-          <Forms data={formData} />
-          <LoginButton type="primary" onClick={signupConfirm}>
-            注册
-          </LoginButton>
+          {curView === 'SIGNUP_SUCCESS' ? (
+            <PromptSign desc="注册成功，欢迎光临" />
+          ) : (
+            <Forms data={formData} />
+          )}
+          {curView === 'SIGNUP' && (
+            <SignupButton type="primary" onClick={signupConfirm}>
+              注册
+            </SignupButton>
+          )}
         </FormWrapper>
         <RegisterButton>
           <Link href="/">登陆已有账号</Link>

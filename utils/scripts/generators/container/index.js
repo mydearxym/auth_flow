@@ -28,9 +28,9 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'wantSchema',
+      name: 'wantService',
       default: true,
-      message: 'Do you want GraphQL schema?',
+      message: 'Do you want network service?',
     },
     {
       type: 'confirm',
@@ -80,11 +80,11 @@ module.exports = {
       },
     ]
 
-    if (data.wantSchema) {
+    if (data.wantService) {
       actions.push({
         type: 'add',
-        path: '../../../containers/{{properCase name}}/schema.js',
-        templateFile: './container/schema.js.hbs',
+        path: '../../../containers/{{properCase name}}/service.js',
+        templateFile: './container/service.js.hbs',
         abortOnFail: true,
       })
     }
