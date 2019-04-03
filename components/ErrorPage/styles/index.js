@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { theme, cs } from 'utils'
 import Img from 'Img'
-import PromptIcon from 'components/PromptIcon'
 
 export const Container = styled.div`
   ${cs.flexColumn('align-center')};
@@ -43,7 +42,7 @@ export const HintDesc = styled.div`
   font-size: ${({ small }) => (small ? '1rem' : '1.1rem')};
 `
 
-export const Error404Icon = styled(PromptIcon)`
+export const Error404Icon = styled(Img)`
   width: 240px;
   height: 240px;
 `
