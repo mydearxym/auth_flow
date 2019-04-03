@@ -4,6 +4,15 @@
 
 公网预览地址 [https://auth-flow.mydearxym.now.sh/](https://auth-flow.mydearxym.now.sh/)
 
+> 目前因为线上没有可用 api, 仅做展示使用，如需查看交互逻辑，请按下面步骤操作.
+
+## 安装
+
+1. clone 代码到本地
+2. make install
+3. make mock.server
+4. make mock
+
 ## 目录结构
 
 ![image](https://user-images.githubusercontent.com/6184465/55447257-9401b880-55f5-11e9-85c6-97c1ceceb224.png)
