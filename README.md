@@ -242,6 +242,10 @@ const signin = ({ body: { password } }, res) => {
 相关 eslint 的规范请查阅 .eslintrc.js
 相关 prettier 的规范请查阅 .prettierrc.js
 
+使用 make commit 时会自动处理:
+
+![image](https://user-images.githubusercontent.com/6184465/55526682-88cb8d00-56c8-11e9-976c-63e20e112e6b.png)
+
 ### commit msg
 
 所有 commit 必须强制遵循 [Commitizen 规范](http://commitizen.github.io/cz-cli/) 
