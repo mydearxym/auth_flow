@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 
 import ThemeWrapper from 'containers/ThemeWrapper'
-import Preview from 'containers/Preview'
+// import Preview from 'containers/Preview'
 import AuthLayout from 'components/AuthLayout'
 import AuthBanner from 'components/AuthBanner'
 
@@ -10,7 +10,7 @@ import SigninForm from 'containers/SigninForm'
 import Footer from 'containers/Footer'
 
 import GAWraper from 'components/GAWraper'
-import ErrorPage from 'components/ErrorPage'
+// import ErrorPage from 'components/ErrorPage'
 import initRootStore from 'stores/init'
 
 import { makeDebugger } from 'utils'
@@ -41,28 +41,16 @@ export default class SignIn extends React.Component {
   }
 
   render() {
-    const { statusCode, target } = this.props
-
+    // const { statusCode, target } = this.props
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage
-                errorCode={statusCode}
-                page="community"
-                target={target}
-              />
-            ) : (
-              <React.Fragment>
-                <Preview />
-                <AuthLayout>
-                  <AuthBanner />
-                  <SigninForm />
-                  <Footer />
-                </AuthLayout>
-              </React.Fragment>
-            )}
+            <AuthLayout>
+              <AuthBanner />
+              <SigninForm />
+              <Footer />
+            </AuthLayout>
           </ThemeWrapper>
         </GAWraper>
       </Provider>

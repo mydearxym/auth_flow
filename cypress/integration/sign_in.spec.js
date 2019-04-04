@@ -5,6 +5,7 @@ describe('sign_in page', () => {
   })
 
   it.only('visit sign_in page', () => {
+    cy.url().should('include', '/sign_in')
     cy.contains('手机号码').should('be.visible')
     cy.contains('发送验证码').should('be.visible')
     cy.contains('登陆').should('be.visible')

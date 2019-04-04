@@ -36,6 +36,13 @@ const SignupForm = t
     },
   }))
   .actions(self => ({
+    toastError(options) {
+      self.root.toast('error', R.merge({ position: 'topCenter' }, options))
+    },
+    toastDone(options) {
+      self.root.toast('success', R.merge({ position: 'topCenter' }, options))
+    },
+
     updateEditing(sobj) {
       return self.markState({ ...sobj })
     },

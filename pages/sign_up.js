@@ -10,7 +10,7 @@ import SignupForm from 'containers/SignupForm'
 import Footer from 'containers/Footer'
 
 import GAWraper from 'components/GAWraper'
-import ErrorPage from 'components/ErrorPage'
+// import ErrorPage from 'components/ErrorPage'
 import initRootStore from 'stores/init'
 
 import { makeDebugger } from 'utils'
@@ -41,28 +41,18 @@ export default class SignUp extends React.Component {
   }
 
   render() {
-    const { statusCode, target } = this.props
+    // const { statusCode, target } = this.props
 
     return (
       <Provider store={this.store}>
         <GAWraper>
           <ThemeWrapper>
-            {statusCode ? (
-              <ErrorPage
-                errorCode={statusCode}
-                page="community"
-                target={target}
-              />
-            ) : (
-              <React.Fragment>
-                <Preview />
-                <AuthLayout>
-                  <AuthBanner />
-                  <SignupForm />
-                  <Footer />
-                </AuthLayout>
-              </React.Fragment>
-            )}
+            <Preview />
+            <AuthLayout>
+              <AuthBanner />
+              <SignupForm />
+              <Footer />
+            </AuthLayout>
           </ThemeWrapper>
         </GAWraper>
       </Provider>
