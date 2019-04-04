@@ -97,13 +97,85 @@ containers/Hello/
 
 ## mock 层
 
-```bash
-make mock.server
-```
-
-- 类似之前项目的写法，支持自定义返回
+- 与 umi 之前项目的写法基本一致，支持自定义返回
 - 支持目录结构约定路由返回 GET 请求
 - 支持热更新
+
+### 启动 mock server
+
+```bash
+make mock.server
+// or 
+npm run mock:server
+```
+当当前环境为 mock 的时候，项目中的所有 api 请求都会路由到 mock-server 这里。
+
+### 添加 mock 数据
+
+你可以在 mock/data 目录下按照所需的路由层级放置 .json 文件自动生成 get 返回
+
+比如你需要 /first/secend 返回一个 json 结果，你可以在 data 目录下按照路由层级放置 secend.json
+
+```bash
+mock
+│  ...
+├── data
+│   └── first
+│       └── secend.json
+```
+
+这时请求 http://localhost:3001/first/secend 就会自动得到： 
+
+```json
+{
+  code: 1001,
+  message: "获取成功",
+  data: {
+    foo: "boo"
+  }
+}
+```
+
+### 编写自定义测试
+
+当你需要自定义 POST, DELETE, PUT 或某些特殊的 GET 请求时，你可以在 mock/actions 目录下编写 (文件按照具体功能自行划分)
+
+比如编写一个 /sign_in 的自定义 post 返回: 
+
+```js
+// mock/server.js
+
+server.post('/signin', (req, res) => A.account.signin(req, res))
+```
+
+```js
+// mock/actions/account.js
+
+const C = require('../constants')
+
+const signin = ({ body: { password } }, res) => {
+  if (password === C.BAD_SIGN_PASSWORD) {
+    return res.json({
+      code: C.ERR_CODE,
+      message: '登陆失败',
+      data: null,
+    })
+  }
+
+  return res.json({
+    code: C.SUCCESS_CODE,
+    message: '请求成功',
+    data: 'hello',
+  })
+}
+
+```
+
+## 前端 lint
+
+eslint & prettier
+commit msg lint
+
 
 ## 测试
 
