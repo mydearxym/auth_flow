@@ -1,3 +1,7 @@
 {
-  "hello": "world"
+  "code": 1001,
+  "message": "获取成功",
+  "data": {
+    "foo": "boo"
+  }
 }

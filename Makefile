@@ -1,19 +1,15 @@
 include Makefile.include.mk
 
 help:
-	$(call launch.help)
+	$(call init.help)
+	$(call dev.help)
 	$(call gen.help)
 	$(call commit.help)
-	$(call release.help)
-	$(call deploy.help)
 	$(call test.help)
-	$(call dashboard.help)
-	$(call ci.help)
-	$(call github.help)
 	@echo "\n"
 
 init:
-	npm install
+	yarn install
 
 install:
 	yarn install
@@ -127,62 +123,3 @@ lint:
 lint.watch:
 	npm run lint:watch # use dialyzer
 
-# dashboard
-dashboard.help:
-	$(call dashboard.help)
-	@echo "\n"
-dashboard:
-	$(call dashboard.help)
-	@echo "\n"
-dashboard.ga:
-	$(call browse,"$(DASHBOARD_GA_LINK)")
-dashboard.apollo:
-	$(call browse,"$(DASHBOARD_APOLLO_LINK)")
-dashboard.pm2:
-	$(call browse,"$(DASHBOARD_PM2_LINK)")
-dashboard.errors:
-	$(call browse,"$(DASHBOARD_SENTRY_LINK)")
-dashboard.aliyun:
-	$(call browse,"$(DASHBOARD_ALIYUN_LINK)")
-
-# ci helpers
-ci.help:
-	$(call ci.help)
-	@echo "\n"
-ci:
-	$(call ci.help)
-	@echo "\n"
-ci.build:
-	$(call browse,"$(CI_BUILD_LINK)")
-ci.coverage:
-	$(call browse,"$(CI_COVERAGE_LINK)")
-ci.codecov:
-	$(call browse,"$(CI_CODECOV_LINK)")
-ci.codefactor:
-	$(call browse,"$(CI_CODEFACTOR_LINK)")
-ci.codacy:
-	$(call browse,"$(CI_CODACY_LINK)")
-ci.doc:
-	$(call browse,"$(CI_DOC_LINK)")
-ci.depsbot:
-	$(call browse,"$(CI_DEPSBOT_LINK)")
-
-# github helpers
-github:
-	$(call github.help)
-	@echo "\n"
-github.help:
-	$(call github.help)
-	@echo "\n"
-github.code:
-	$(call browse,"$(GITHUB_CODE_LINK)")
-github.doc:
-	$(call browse,"$(GITHUB_DOC_LINK)")
-github.pr:
-	$(call browse,"$(GITHUB_PR_LINK)")
-github.issue:
-	$(call browse,"$(GITHUB_ISSUE_LINK)")
-github.issue.new:
-	$(call browse,"$(GITHUB_ISSUE_LINK)/new")
-github.app:
-	$(call browse,"$(GITHUB_APP_LINK)")

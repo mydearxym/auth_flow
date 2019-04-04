@@ -7,7 +7,7 @@ const middlewares = jsonServer.defaults({ cors: false })
 // const config = require('../config')
 const { dbHandler, rewriterHandler } = require('./handler')
 
-const H = require('./actions')
+const A = require('./actions')
 
 // const mockPort = config.MOCK_SERVER_PORT // 3001
 
@@ -26,11 +26,11 @@ server.use('*', (req, res, next) => setTimeout(next, delaySec * 1000))
 
 /* eslint-disable */
 server.get('/echo', (req, res) => res.json(require('./data/user/login.json')))
-server.post('/signin', (req, res) => H.account.signin(req, res))
-server.post('/signup', (req, res) => H.account.signup(req, res))
-server.post('/resetPassword', (req, res) => H.account.resetPassword(req, res))
+server.post('/signin', (req, res) => A.account.signin(req, res))
+server.post('/signup', (req, res) => A.account.signup(req, res))
+server.post('/resetPassword', (req, res) => A.account.resetPassword(req, res))
 server.get('/verifyPhoneCode', (req, res) =>
-  H.account.verifyPhoneCode(req, res)
+  A.account.verifyPhoneCode(req, res)
 )
 /* eslint-enable */
 
