@@ -43,6 +43,7 @@ export const forgotPassword = () =>
 // ###############################
 
 export const init = _store => {
+  debug('signin init')
   store = _store
 }
 

@@ -1,4 +1,4 @@
-import _debug from 'debug'
+import _debug from 'compatible-debug'
 import { isBrowser } from './dom_operator'
 
 if (

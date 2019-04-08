@@ -22,8 +22,12 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, viewport-fit=cover"
           />
+          <meta httpEquiv="x-ua-compatible" content="IE=edge" />
 
-          <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js" />
+          <script
+            async
+            src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"
+          />
           <link
             href="https://cdn.staticfile.org/antd/3.8.4/antd.css"
             rel="stylesheet"
@@ -48,7 +52,7 @@ export default class MyDocument extends Document {
             gtag('js', new Date());
 
             gtag('config', '${process.env.GA_TRACING_ID}');
-              `,
+                `,
             }}
           />
           {this.props.styleTags}

@@ -1,6 +1,6 @@
 describe('sign_in page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/sign_in')
+    cy.visit('/sign_in')
     /* cy.auth(user.id).then(() => cy.visit('/')); */
   })
 

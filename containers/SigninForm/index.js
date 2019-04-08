@@ -33,11 +33,12 @@ class SigninFormContainer extends React.Component {
   render() {
     const { signinForm } = this.props
     const { formData, curView } = signinForm
+    const subSystem = '交易平台.'
 
     return (
       <Wrapper>
         <FormWrapper>
-          <h2>登陆交易平台</h2>
+          <h2>{`登陆${subSystem}`}</h2>
           <div>让买电像买菜一样简单</div>
           <Divider />
           {curView === 'SIGNIN_SUCCESS' ? (

@@ -18,10 +18,6 @@ import { makeDebugger } from 'utils'
 /* eslint-disable-next-line */
 const debug = makeDebugger('page:community')
 
-// try to fix safari bug
-// see https://github.com/yahoo/react-intl/issues/422
-global.Intl = require('intl')
-
 export default class SignUp extends React.Component {
   static async getInitialProps() {
     // const mainPath = getMainPath(props)

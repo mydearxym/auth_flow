@@ -5,6 +5,10 @@
 import includes from 'core-js/library/fn/string/virtual/includes'
 import repeat from 'core-js/library/fn/string/virtual/repeat'
 import assign from 'core-js/library/fn/object/assign'
+// for IE compatiable
+import 'core-js/es6/array'
+import 'core-js/es6/map'
+import 'core-js/es6/set'
 /* eslint-enable */
 
 // Add your polyfills
