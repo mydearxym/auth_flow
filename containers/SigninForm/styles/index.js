@@ -33,7 +33,9 @@ export const SigninButton = styled(Button).attrs(props => ({
   width: 80%;
 `
 
-export const RegisterButton = styled.div`
+export const RegisterButton = styled.div.attrs(props => ({
+  'data-testid': props.testid || 'register-button',
+}))`
   margin-top: 5px;
 
   &:hover {

@@ -17,7 +17,8 @@ const getGraphQLEndpoint = () => {
       return `http://localhost:${MOCK_SERVER_PORT}`
 
     default:
-      return 'https://api.coderplanets.com/graphiql'
+      /* return 'https://api.coderplanets.com/graphiql' */
+      return `http://localhost:${MOCK_SERVER_PORT}`
   }
 }
 

@@ -1,10 +1,11 @@
 describe('sign_in page', () => {
   beforeEach(() => {
     cy.visit('/sign_in')
+    Cypress.config('pageLoadTimeout', 100000)
     /* cy.auth(user.id).then(() => cy.visit('/')); */
   })
 
-  it.only('visit sign_in page', () => {
+  it('visit sign_in page', () => {
     cy.url().should('include', '/sign_in')
     cy.contains('手机号码').should('be.visible')
     cy.contains('发送验证码').should('be.visible')
@@ -50,7 +51,7 @@ describe('sign_in page', () => {
     cy.get('[data-testid=phone-carrier-text]').should('not.exist')
   })
 
-  it.only('signin flow should work', () => {
+  it('signin flow should work', () => {
     const PHONE_NUM = '15982398614'
     cy.get('[data-testid=phone-num-input]')
       .type(PHONE_NUM)

@@ -54,7 +54,7 @@ class SigninFormContainer extends React.Component {
         </FormWrapper>
 
         {curView === 'SIGNIN' && (
-          <RegisterButton>
+          <RegisterButton testid="signup-linker">
             <Link href="/sign_up">注册平台账号</Link>
           </RegisterButton>
         )}
