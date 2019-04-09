@@ -50,7 +50,7 @@ describe('sign_in page', () => {
     cy.get('[data-testid=phone-carrier-text]').should('not.exist')
   })
 
-  it.only('signin flow should work', () => {
+  it('signin flow should work', () => {
     const PHONE_NUM = '15982398614'
     cy.get('[data-testid=phone-num-input]')
       .type(PHONE_NUM)
