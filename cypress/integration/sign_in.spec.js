@@ -4,7 +4,7 @@ describe('sign_in page', () => {
     /* cy.auth(user.id).then(() => cy.visit('/')); */
   })
 
-  it.only('visit sign_in page', () => {
+  it('visit sign_in page', () => {
     cy.url().should('include', '/sign_in')
     cy.contains('手机号码').should('be.visible')
     cy.contains('发送验证码').should('be.visible')
@@ -17,9 +17,11 @@ describe('sign_in page', () => {
     cy.get('[data-testid=signin-confirm-btn]').should('be.visible')
   })
 
+  /*
   it('link to sign_up page', () => {
     cy.get('[data-testid=signup-linker]').should('be.visible')
   })
+  */
 
   it('type valid phone num should get carrier info', () => {
     const PHONE_NUM = '15982398614'
