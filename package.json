@@ -16,7 +16,7 @@
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
     "test:e2e": "cypress open",
-    "start-mock-server": "nodemon mock/server && npm run dev",
+    "start-mock-server": "npm run dev && nodemon mock/server",
     "cy:run": "cypress run",
     "test:ci": "start-server-and-test start-mock-server http://localhost:3000 cy:run",
     "mock": "cross-env GOAL=mock next",
