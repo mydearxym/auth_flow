@@ -1,6 +1,7 @@
 describe('sign_in page', () => {
   beforeEach(() => {
     cy.visit('/sign_in')
+    Cypress.config('pageLoadTimeout', 100000)
     /* cy.auth(user.id).then(() => cy.visit('/')); */
   })
 
