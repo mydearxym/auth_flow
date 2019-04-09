@@ -18,11 +18,9 @@ describe('sign_in page', () => {
     cy.get('[data-testid=signin-confirm-btn]').should('be.visible')
   })
 
-  /*
   it('link to sign_up page', () => {
     cy.get('[data-testid=signup-linker]').should('be.visible')
   })
-  */
 
   it('type valid phone num should get carrier info', () => {
     const PHONE_NUM = '15982398614'
