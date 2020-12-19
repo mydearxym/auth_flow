@@ -12,4 +12,11 @@ export const ConfirmBtn = styled(Button).attrs(props => ({
 }))`
   width: 50%;
   margin-left: 10px;
+  ${({ testid }) =>
+    testid === 'phone-code-resend-btn'
+      ? `
+      padding: 0 10px;
+      min-width: 110px;
+      `
+      : ''};
 `
